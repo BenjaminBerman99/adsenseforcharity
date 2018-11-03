@@ -10,25 +10,29 @@
 require_once(__DIR__.'/../sql/SQLSyncClass.php');
 class Charity extends SQLSyncClass {
 
-    private $id, $name, $desc, $payment, $raised, $owner;
+    private $rank, $name, $desc, $raised;
 
     /**
      * Charity constructor.
-     * @param $id
+     * @param $rank
      * @param $name
      * @param $desc
-     * @param $payment
      * @param $raised
-     * @param $owner
      */
-    public function __construct($id, $name, $desc, $payment, $raised, $owner)
+    public function __construct($rank, $name, $desc, $raised)
     {
-        $this->id = $id;
+        $this->rank = $rank;
         $this->name = $name;
         $this->desc = $desc;
-        $this->payment = $payment;
         $this->raised = $raised;
-        $this->owner = $owner;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRank()
+    {
+        return $this->rank;
     }
 
     /**
@@ -72,25 +76,6 @@ class Charity extends SQLSyncClass {
     /**
      * @return mixed
      */
-    public function getPayment()
-    {
-        return $this->payment;
-    }
-
-    /**
-     * @param mixed $payment
-     * @return Charity
-     */
-    public function setPayment($payment)
-    {
-        $this->payment = $payment;
-        $this->sync();
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getRaised()
     {
         return $this->raised;
@@ -108,25 +93,6 @@ class Charity extends SQLSyncClass {
     }
 
     /**
-     * @return mixed
-     */
-    public function getOwner()
-    {
-        return $this->owner;
-    }
-
-    /**
-     * @param mixed $owner
-     * @return Charity
-     */
-    public function setOwner($owner)
-    {
-        $this->owner = $owner;
-        $this->sync();
-        return $this;
-    }
-
-    /**
      * Abstract class to save data to SQL.
      * @return mixed
      */
@@ -136,7 +102,8 @@ class Charity extends SQLSyncClass {
         $conn = $this->getConnection();
         if ($conn->connect_error)
             die();
-        $stmt = $conn->prepare("UPDATE `$table` WHERE `id`=? SET `name`=?, `description`=?, `owner`=?, `raised`=?;");
+        $stmt = $conn->prepare("UPDATE `$table` WHERE `rank`=? SET `name`=?, `description`=?, `raised`=?;");
+        $stmt->bind_param($this->rank, $this->name, $this->desc, $this->raised);
         $stmt->execute();
     }
 }
