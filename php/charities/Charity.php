@@ -20,7 +20,6 @@ class Charity extends SQLSyncClass {
      * @param $raised
      * @param $link
      * @param $pic1
-     * @param $pic2
      * @param $long1
      * @param $long2
      * @param $logo
@@ -116,7 +115,7 @@ class Charity extends SQLSyncClass {
      */
     public function getPic1()
     {
-        return $this->pic1;
+        return "http://".$this->pic1;
     }
 
     /**
@@ -140,7 +139,7 @@ class Charity extends SQLSyncClass {
      */
     public function getLogo()
     {
-        return $this->logo;
+        return "http://".$this->logo;
     }
 
     /**

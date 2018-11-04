@@ -13,9 +13,9 @@ class CharityHandler{
 
     public function fetchCharity($name){
         $SQL_HOST = "localhost";
-        $SQL_DB = "afc";
-        $SQL_USER = "afc";
-        $SQL_PASSWORD = "";
+        $SQL_DB = "id7727012_mydatabase";
+        $SQL_USER = "id7727012_charitygroup1";
+        $SQL_PASSWORD = "Characters2numbers@1";
 
         $conn = mysqli_connect($SQL_HOST, $SQL_USER, $SQL_PASSWORD, $SQL_DB);
         if ($conn->connect_error) {
@@ -28,7 +28,7 @@ class CharityHandler{
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                return new Charity($row['rank'], $row['name'], $row['Description'], $row['raised'], $row["link"], $row["pic1"], $row["long1"], $row["long2"], $row["logo"]);
+                return new Charity($row['Rank'], $row['name'], $row['Description'], $row['raised'], $row["link"], $row["pic1"], $row["long1"], $row["long2"], $row["logo"]);
             }
         }
         else{
@@ -38,9 +38,9 @@ class CharityHandler{
 
     public function fetchAllCharities(){
         $SQL_HOST = "localhost";
-        $SQL_DB = "afc";
-        $SQL_USER = "afc";
-        $SQL_PASSWORD = "";
+        $SQL_DB = "id7727012_mydatabase";
+        $SQL_USER = "id7727012_charitygroup1";
+        $SQL_PASSWORD = "Characters2numbers@1";
 
         $conn = mysqli_connect($SQL_HOST, $SQL_USER, $SQL_PASSWORD, $SQL_DB);
         if ($conn->connect_error) {
@@ -53,7 +53,7 @@ class CharityHandler{
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                array_push($charities, new Charity($row['rank'], $row['name'], $row['Description'], $row['raised'], $row["link"], $row["pic1"], $row["long1"], $row["long2"], $row["logo"]));
+                array_push($charities, new Charity($row['Rank'], $row['name'], $row['Description'], $row['raised'], $row["link"], $row["pic1"], $row["long1"], $row["long2"], $row["logo"]));
             }
         }
         return $charities;
