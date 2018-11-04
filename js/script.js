@@ -43,8 +43,9 @@ function addSecond(){
 
     if (player.getPlayerState() === 1){
         seconds++;
-        $("#rev").text("$"+Math.round((seconds * 0.006) * 100) / 100);
-
+        calc = Math.round((seconds * 0.006) * 100) / 100;
+        $("#rev").text("$"+calc);
+        $("#done").attr("href", "http://adsenseforcharities.com/done.php?save="+calc);
     }
 
 }

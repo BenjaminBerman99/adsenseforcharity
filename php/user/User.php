@@ -7,7 +7,8 @@
  * For: Hackathon
  */
 
-require_once(__DIR__.'/../sql/SQLSyncClass.php');
+require_once ("LevelCalculator.php");
+require_once (__DIR__.'/../sql/SQLSyncClass.php');
 class User extends SQLSyncClass {
 
     private $googleId, $email, $donated;
@@ -57,6 +58,16 @@ class User extends SQLSyncClass {
     {
         $this->donated = $donated;
         return $this;
+    }
+
+    public function getLevel(){
+        $lc = new LevelCalculator();
+        return $lc->getLevel($this->getDonated());
+    }
+
+    public function getRemaining(){
+        $lc = new LevelCalculator();
+        return $lc->getRemaining($this->getDonated());
     }
 
     /**

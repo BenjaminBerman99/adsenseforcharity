@@ -2,30 +2,40 @@
 <html>
 
 <?php
-require_once ("php/charities/CharityHandler.php");
-$charity = "American Red Cross";
-if (isset($_GET["charity"])){
-    $charity = $_GET["charity"];
-    $handler = new CharityHandler();
-    $charity = $handler->fetchCharity($charity);
+session_start();
+require_once ("php/user/UserHandler.php");
+$name = "Error";
+if (isset($_SESSION['googleID'])){
+    $name = $_SESSION["name"];
+    $handler = new UserHandler();
+    $profile = $handler->getUser($_SESSION["googleID"]);
 }
 
 ?>
 
 <head>
-  <title>AFC : <?php echo $charity->getName();?></title>
+  <title>AFC : <?php echo $name;?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
-<body>
+<body style="background: #343a40; height: 100%;">
   <div class="py-5 text-center" style="background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/light-column-particles_-ybovlvgs__F0000.png');background-size:cover;">
         <div class="container">
       <div class="row">
         <div class="bg-white p-5 mx-auto col-md-8 col-10">
-          <h3 class="display-3"><?php echo $charity->getName(); ?></h3>
-          <p class="mb-4"><?php echo $charity->getDesc(); ?></p> <a class="btn btn-outline-primary" href="watch.php" style="">Watch Ads</a> <a class="btn btn-outline-primary" href="<?php echo $charity->getLink();?>" style="">Learn More<br></a>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="<?php echo $_SESSION["pic"]; ?>" class="img-responsive img-rounded">
+                </div>
+                <div class="col-md-9">
+                    <h3 class="display-3"><?php echo $name; ?></h3>
+                    <p class="mb-4">Level <?php echo $profile->getLevel(); ?></p><br>
+                    <p class="mb-4">Next Level Up In $<?php echo $profile->getRemaining(); ?></p><br>
+                </div>
+            </div>
+
         </div>
       </div>
     </div>
@@ -44,22 +54,6 @@ if (isset($_GET["charity"])){
       </div>
     </div>
   </nav>
-  <div class="py-3" style="">
-    <div class="container">
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7">
-          <p class="lead mb-0"><?php echo $charity->getLong1();?></p>
-        </div>
-        <div class="p-0 col-lg-3"> <img class="img-fluid d-block" src="<?php echo $charity->getLogo();?>"> </div>
-      </div>
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="p-0 order-2 order-lg-1 col-lg-3"> <img class="img-fluid d-block" src="<?php echo $charity->getPic2();?>"> </div>
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
-          <p class="lead mb-0"><?php echo $charity->getLong2();?></p>
-        </div>
-      </div>
-    </div>
-  </div>
   <footer>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

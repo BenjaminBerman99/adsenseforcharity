@@ -25,7 +25,7 @@ if (isset($_GET["charity"])){
       <div class="row">
         <div class="bg-white p-5 mx-auto col-md-8 col-10">
           <h3 class="display-3"><?php echo $charity->getName(); ?></h3>
-          <p class="mb-4"><?php echo $charity->getDesc(); ?></p> <a class="btn btn-outline-primary" href="watch.php" style="">Watch Ads</a> <a class="btn btn-outline-primary" href="<?php echo $charity->getLink();?>" style="">Learn More<br></a>
+          <p class="mb-4"><?php echo $charity->getDesc(); ?></p> <a class="btn btn-outline-primary" href="selector.php" style="">Watch Ads</a> <a class="btn btn-outline-primary" href="<?php echo $charity->getLink();?>" style="">Learn More<br></a>
         </div>
       </div>
     </div>

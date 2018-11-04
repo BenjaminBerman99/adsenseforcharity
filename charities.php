@@ -14,7 +14,7 @@
       <div class="row">
         <div class="mx-auto col-lg-8 col-md-10">
           <h1 class="display-3 mb-4">Meet the Charities<br></h1>
-          <p class="lead mb-5"></p> <a href="watch.php" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
+          <p class="lead mb-5"></p> <a href="selector.php" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
         </div>
       </div>
     </div>

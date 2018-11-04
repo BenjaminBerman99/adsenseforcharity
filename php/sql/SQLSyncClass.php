@@ -9,10 +9,10 @@
 
 abstract class SQLSyncClass{
 
-    const SQL_HOST = "adsenseforcharity.com";
-    const SQL_DB = "id7727012_mydatabase";
-    const SQL_USER = "charity";
-    const SQL_PASSWORD = "changeMe!";
+    const SQL_HOST = "adsenseforcharities.com";
+    const SQL_DB = "afc";
+    const SQL_USER = "afc_user";
+    const SQL_PASSWORD = "afc_password";
 
     /**
      * Abstract class to save data to SQL.

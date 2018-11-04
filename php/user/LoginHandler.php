@@ -7,14 +7,17 @@
  * For: Hackathon
  */
 
-require_once(__DIR__.'/../sql/SQLSyncClass.php');
+require_once('UserHandler.php');
 
 if (isset($_GET["googleID"])){
     session_start();
     $_SESSION["googleID"] = $_GET["googleID"];
-    echo $_SESSION["googleID"];
-    echo "Logged in";
-
+    $_SESSION["email"] = $_GET["email"];
+    $_SESSION["name"] = $_GET["name"];
+    $_SESSION["pic"] = $_GET["pic"];
+    $uh = new UserHandler();
+    echo $uh->createIfNeeded($_GET["googleID"], $_GET["email"]);
+    header("location: http://www.adsenseforcharities.com");
 }
 else{
     echo 'Error: Your token is invalid!';
