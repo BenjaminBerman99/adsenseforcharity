@@ -10,25 +10,50 @@
 class LevelCalculator{
 
     public function getLevel($donationAmount){
-        $level1 = floor(($donationAmount / 5)*100)/100;
-        if ($level1 > 5){
-            $level2 = floor((($donationAmount - 25)/10)*100)/100;
-            if ($level1+$level2> 10){
-                return floor((($donationAmount - 75)/25)*100)/100;
-            }
-            else{
-                return $level1+$level2+1;
-            }
+        $level = 0;
+        while ($level < 5 && $donationAmount >= 5){
+            $donationAmount -= 5;
+            $level++;
         }
-        else{
-            return $level1+1;
+        while ($level < 10 && $donationAmount >= 10){
+            $donationAmount -= 10;
+            $level++;
         }
+        while ($donationAmount >= 25){
+            $donationAmount -= 25;
+            $level++;
+        }
+        if ($donationAmount == 0){
+            $level++;
+        }
+        return $level;
     }
 
     public function getRemaining($donationAmount){
-        $level = $this->getLevel($donationAmount);
-        if ($level > 10){
-            
+        $level = 0;
+        while ($level < 5 && $donationAmount >= 5){
+            $donationAmount -= 5;
+            $level++;
+        }
+        while ($level < 10 && $donationAmount >= 10){
+            $donationAmount -= 10;
+            $level++;
+        }
+        while ($donationAmount >= 25){
+            $donationAmount -= 25;
+            $level++;
+        }
+        if ($donationAmount == 0){
+            $level++;
+        }
+        if ($level < 5){
+            return 5-$donationAmount;
+        }
+        else if ($level < 10){
+            return 10-$donationAmount;
+        }
+        else{
+            return 25-$donationAmount;
         }
     }
 
