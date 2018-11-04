@@ -28,18 +28,22 @@
   </nav>
   <div class="py-3" style="">
     <div class="container">
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7">
-          <p class="lead mb-0">Welcome to Adsense For Charity. If you have never been here before, please take a moment to read this. This web application is currently still in development. To begin, click the button Watch Ads. From there, you will be generating money. Whatever you generate will go directly to the charity you choose from the 20 we have listed! Thank you for your participation. </p>
-        </div>
-        <div class="p-0 col-lg-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-      </div>
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="p-0 order-2 order-lg-1 col-lg-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
-          <p class="lead mb-0">We have researched the 20 largest charities in the country. We have included some information on them so please go ahead and learn a bit about them yourself!</p><span> </span>
-        </div>
-      </div>
+
+        <center>
+            <h6 class="text-light">Please select a charity to support:</h6>
+        <select>
+      <?php
+      require_once ("php/charities/CharityHandler.php");
+      $handler = new CharityHandler();
+      $charities = $handler->fetchAllCharities();
+      $i = 0;
+      while ($i <= count($charities)){
+          $charity = $charities[$i];
+          $i++;
+          echo '<option value="'.$charity->getName().'">'.$charity->getName().'</option>';
+      }
+      ?>
+        </select></center>
     </div>
   </div>
   <footer>

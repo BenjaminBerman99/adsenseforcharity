@@ -25,7 +25,7 @@ if (isset($_GET["charity"])){
       <div class="row">
         <div class="bg-white p-5 mx-auto col-md-8 col-10">
           <h3 class="display-3"><?php echo $charity->getName(); ?></h3>
-          <p class="mb-4"><?php echo $charity->getDesc(); ?></p> <a class="btn btn-outline-primary" href="watch.html" style="">Watch Ads</a> <a class="btn btn-outline-primary" href="<?php echo $charity->getLink();?>" style="">Learn More<br></a>
+          <p class="mb-4"><?php echo $charity->getDesc(); ?></p> <a class="btn btn-outline-primary" href="watch.php" style="">Watch Ads</a> <a class="btn btn-outline-primary" href="<?php echo $charity->getLink();?>" style="">Learn More<br></a>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ if (isset($_GET["charity"])){
       </button>
       <div class="collapse navbar-collapse text-center justify-content-center" id="navbar9">
         <ul class="navbar-nav">
-          <li class="nav-item mx-2"> <a class="nav-link" href="watch.html">Watch Ads</a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="watch.php">Watch Ads</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link navbar-brand mr-0 text-white" href="#"><i class="fa d-inline fa-lg fa-stop-circle-o"></i>
               <b> AdsenseForCharity</b></a> </li>
           <li class="nav-item mx-2"> <a class="nav-link" href="aboutus.html">About us</a> </li>
