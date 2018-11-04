@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="169649757167-i7gn25dofkvh4fluaps158lkd20ib2b5.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="169649757167-das0nnp8qiu73af512f01phe6gd1fcom.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -16,7 +16,7 @@
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-            var url= "/user/LoginHandler.php?googleID="+profile.getId();
+            var url= "/php/user/LoginHandler.php?googleID="+profile.getId();
             window.location = url;
         }
     </script>
@@ -24,7 +24,7 @@
 
 <body style="height: 100%;">
 
-<div class="py-5 text-center img-login" style="background-image: url('img/begging-1922612_1920.png'); height: 100% !important; min-height: 100% !important;">
+<div class="py-5 text-center img-login" style="background-image: url('img/hand.jpeg'); height: 100% !important; min-height: 100% !important;">
 
     <div class="container">
         <div class="row">

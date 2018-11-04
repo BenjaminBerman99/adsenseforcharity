@@ -1,5 +1,6 @@
 var player,
     time_update_interval = 0;
+seconds = 0;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video-placeholder', {
@@ -31,10 +32,21 @@ function initialize(){
     time_update_interval = setInterval(function () {
         //updateTimerDisplay();
         //updateProgressBar();
+        addSecond();
     }, 1000);
-    vids = ["i8Rc1BAdKBU", "fwcYbo7pjto"];
+    vids = ["i8Rc1BAdKBU", "fwcYbo7pjto", "nroqvlPN9Uo","XniR5aa6uZQ","ccVNi50kS4k","HKJklvhE0Vc","lYtEKOKAgfk","4PPobRKUj9A","CiK76WhVE_c","s3TADPtK_nk","rKAG-vmva28", "pJezeSYP6xc","GZ9ndjQopcs","I5kT9NhroE4","OKQytrOtbqI","NqBjrdXV198"];
     player.loadPlaylist(vids);
     //$('#volume-input').val(Math.round(player.getVolume()));
+}
+
+function addSecond(){
+
+    if (player.getPlayerState() === 1){
+        seconds++;
+        $("#rev").text("$"+Math.round((seconds * 0.006) * 100) / 100);
+
+    }
+
 }
 
 

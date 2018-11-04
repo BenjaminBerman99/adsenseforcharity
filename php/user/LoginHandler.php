@@ -14,6 +14,7 @@ if (isset($_GET["googleID"])){
     $_SESSION["googleID"] = $_GET["googleID"];
     echo $_SESSION["googleID"];
     echo "Logged in";
+
 }
 else{
     echo 'Error: Your token is invalid!';

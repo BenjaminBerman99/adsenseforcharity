@@ -10,21 +10,19 @@
 require_once(__DIR__.'/../sql/SQLSyncClass.php');
 class User extends SQLSyncClass {
 
-    private $googleId, $email, $donated, $helped, $awards;
+    private $googleId, $email, $donated;
 
     /**
      * User constructor.
      * @param $googleId
      * @param $email
      * @param $donated
-     * @param $helped
      */
-    public function __construct($googleId, $email, $donated, $helped)
+    public function __construct($googleId, $email, $donated)
     {
         $this->googleId = $googleId;
         $this->email = $email;
         $this->donated = $donated;
-        $this->helped = $helped;
     }
 
     /**
@@ -52,46 +50,12 @@ class User extends SQLSyncClass {
     }
 
     /**
-     * @return mixed
-     */
-    public function getHelped()
-    {
-        return $this->helped;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHelpedJSON()
-    {
-        return $this->helped;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
      * @param mixed $donated
      * @return User
      */
     public function setDonated($donated)
     {
         $this->donated = $donated;
-        return $this;
-    }
-
-    /**
-     * @param mixed $helped
-     * @return User
-     */
-    public function setHelped($helped)
-    {
-        $this->helped = $helped;
         return $this;
     }
 

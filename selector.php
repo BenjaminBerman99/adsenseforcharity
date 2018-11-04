@@ -13,8 +13,8 @@
     <div class="container py-5">
       <div class="row">
         <div class="mx-auto col-lg-8 col-md-10">
-          <h1 class="display-3 mb-4">Meet the Charities<br></h1>
-          <p class="lead mb-5"></p> <a href="watch.php" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
+          <h1 class="display-3 mb-4">Select A Charity To Support<br></h1>
+          <p class="lead mb-5"></p> <a href="selector.php" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
       </button>
       <div class="collapse navbar-collapse text-center justify-content-center" id="navbar9">
         <ul class="navbar-nav">
-          <li class="nav-item mx-2"> <a class="nav-link" href="watch.php">Watch Ads</a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="selector.php">Watch Ads</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link navbar-brand mr-0 text-white" href="index.html"><i class="fa d-inline fa-lg fa-stop-circle-o"></i>
               <b>AdsenseForCharity</b></a> </li>
           <li class="nav-item mx-2"> <a class="nav-link" href="aboutus.html">About us</a> </li>
