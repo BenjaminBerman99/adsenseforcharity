@@ -10,7 +10,7 @@
 require_once(__DIR__.'/../sql/SQLSyncClass.php');
 class User extends SQLSyncClass {
 
-    private $googleId, $email, $donated, $helped;
+    private $googleId, $email, $donated, $helped, $awards;
 
     /**
      * User constructor.
