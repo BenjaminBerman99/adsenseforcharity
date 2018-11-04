@@ -52,7 +52,7 @@
           <div class="row">
             <div class="text-center col-4">'.$pic.'</div>
             <div class="col-8">
-              <h6><a href="charity.php?charity='.$charity->getName().'">#'.$charity->getRank().' '.$charity->getName().'</a></h6>
+              <h6><a href="watch.php?charity='.$charity->getName().'">#'.$charity->getRank().' '.$charity->getName().'</a></h6>
               <p>'.$charity->getDesc().'
             </div>
           </div>

@@ -9720,3 +9720,10 @@ table-primary, table-secondary, table-success, table-info, table-warning, table-
 .list-group {
     font-size: 0.875em;
 }
+
+#video-placeholder{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #4582EC;
+    padding: 10px;
+}
