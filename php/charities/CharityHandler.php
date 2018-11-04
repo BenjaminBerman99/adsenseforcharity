@@ -13,9 +13,9 @@ class CharityHandler{
 
     public function fetchCharity($name){
         $SQL_HOST = "localhost";
-        $SQL_DB = "id7727012_mydatabase";
-        $SQL_USER = "id7727012_charitygroup1";
-        $SQL_PASSWORD = "Characters2numbers@1";
+        $SQL_DB = "afc";
+        $SQL_USER = "afcuser";
+        $SQL_PASSWORD = "afcpassword";
 
         $conn = mysqli_connect($SQL_HOST, $SQL_USER, $SQL_PASSWORD, $SQL_DB);
         if ($conn->connect_error) {
@@ -38,9 +38,9 @@ class CharityHandler{
 
     public function fetchAllCharities(){
         $SQL_HOST = "localhost";
-        $SQL_DB = "id7727012_mydatabase";
-        $SQL_USER = "id7727012_charitygroup1";
-        $SQL_PASSWORD = "Characters2numbers@1";
+        $SQL_DB = "afc";
+        $SQL_USER = "afcuser";
+        $SQL_PASSWORD = "afcpassword";
 
         $conn = mysqli_connect($SQL_HOST, $SQL_USER, $SQL_PASSWORD, $SQL_DB);
         if ($conn->connect_error) {
