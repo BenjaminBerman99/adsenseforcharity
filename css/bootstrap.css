@@ -4260,7 +4260,7 @@ input[type="button"].btn-block {
     padding-top: 0.3006875rem;
     padding-bottom: 0.3006875rem;
     margin-right: 1rem;
-    font-size: 1.32875rem;
+    font-size: 2.32875rem;
     line-height: inherit;
     white-space: nowrap;
 }
@@ -9498,7 +9498,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar {
-    font-size: 0.875em;
+    font-size: 1.875em;
 }
 
 .bg-dark {

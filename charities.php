@@ -13,8 +13,8 @@
     <div class="container py-5">
       <div class="row">
         <div class="mx-auto col-lg-8 col-md-10">
-          <h1 class="display-3 mb-4">Adsense For Charity<br></h1>
-          <p class="lead mb-5">Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence.</p> <a href="adpage1.html" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
+          <h1 class="display-3 mb-4">Meet the Charities<br></h1>
+          <p class="lead mb-5"></p> <a href="adpage1.html" class="btn btn-lg btn-outline-primary mx-1 text-light">Watch Ads<br></a>
         </div>
       </div>
     </div>
@@ -35,21 +35,36 @@
   </nav>
   <div class="py-3" style="">
     <div class="container">
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7">
-          <p class="lead mb-0">Welcome to Adsense For Charity. If you have never been here before, please take a moment to read this. This web application is currently still in development. To begin, click the button Watch Ads. From there, you will be generating money. Whatever you generate will go directly to the charity you choose from the 20 we have listed! Thank you for your participation. </p>
+      <?php
+      require_once ("php/charities/CharityHandler.php");
+      $handler = new CharityHandler();
+      $charities = $handler->fetchAllCharities();
+      $i = 0;
+      $y = 0;
+      while ($i <= count($charities)){
+          $charity = $charities[$i];
+          $pic = '<img src="'.$charity->getLogo().'" class="img-fluid d-block mx-auto mb-3">';
+          if ($y == 0){
+              echo '<div class="row">';
+          }
+          echo '
+        <div class="py-5 col-md-6">
+          <div class="row">
+            <div class="text-center col-4">'.$pic.'</div>
+            <div class="col-8">
+              <h6><a href="charity.php?charity='.$charity->getName().'">'.$charity->getName().'</a></h6>
+            </div>
+          </div>
         </div>
-        <div class="p-0 col-lg-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-      </div>
-      <div class="row my-4 d-flex justify-content-center">
-        <div class="p-0 order-2 order-lg-1 col-lg-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
-          <p class="lead mb-0">We have researched the 20 largest charities in the country. We have included some information on them so please go ahead and learn a bit about them yourself!</p>
-
-            <br><a href="charities.php" class="btn btn-lg btn-outline-primary mx-1 text-dark">Meet The Charities<br></a>
-        </div>
-          
-        </div>
+        ';
+          if ($y == 1){
+              echo '</div>';
+              $y = -1;
+          }
+          $i = $i + 1;
+          $y = $y + 1;
+      }
+      ?>
       </div>
     </div>
 

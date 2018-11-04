@@ -10,7 +10,7 @@
 require_once(__DIR__.'/../sql/SQLSyncClass.php');
 class Charity extends SQLSyncClass {
 
-    private $rank, $name, $desc, $raised;
+    private $rank, $name, $desc, $raised, $link, $pic1, $long1, $long2, $logo;
 
     /**
      * Charity constructor.
@@ -18,13 +18,24 @@ class Charity extends SQLSyncClass {
      * @param $name
      * @param $desc
      * @param $raised
+     * @param $link
+     * @param $pic1
+     * @param $pic2
+     * @param $long1
+     * @param $long2
+     * @param $logo
      */
-    public function __construct($rank, $name, $desc, $raised)
+    public function __construct($rank, $name, $desc, $raised, $link, $pic1, $long1, $long2, $logo)
     {
         $this->rank = $rank;
         $this->name = $name;
         $this->desc = $desc;
         $this->raised = $raised;
+        $this->link = $link;
+        $this->pic1 = $pic1;
+        $this->long1 = $long1;
+        $this->long2 = $long2;
+        $this->logo = $logo;
     }
 
     /**
@@ -90,6 +101,46 @@ class Charity extends SQLSyncClass {
         $this->raised = $raised;
         $this->sync();
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPic1()
+    {
+        return $this->pic1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLong1()
+    {
+        return $this->long1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLong2()
+    {
+        return $this->long2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogo()
+    {
+        return $this->logo;
     }
 
     /**

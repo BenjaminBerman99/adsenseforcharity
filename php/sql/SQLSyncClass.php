@@ -9,8 +9,8 @@
 
 abstract class SQLSyncClass{
 
-    const SQL_HOST = "website.com";
-    const SQL_DB = "ads";
+    const SQL_HOST = "adsenseforcharity.com";
+    const SQL_DB = "id7727012_mydatabase";
     const SQL_USER = "charity";
     const SQL_PASSWORD = "changeMe!";
 
